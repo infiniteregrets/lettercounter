@@ -22,7 +22,7 @@ int main()
   char buffer[BUFFER_SIZE], input, curchar;
   int i = 0, count[COUNT_SIZE];
   int spaces = 0;
-
+  int other  = 0;
   // request and read in the string from the user
   printf("Enter text for analysis: ");
   while ( ((input = getchar()) != '\n') && (i < (BUFFER_SIZE - 1))) {
@@ -43,7 +43,9 @@ int main()
     curchar = toupper(buffer[i]);
     if (curchar >= 65 && curchar <= 90) count[curchar - 65]++;
 
-    if (curchar == ' ') spaces++;
+    else if (curchar == ' ') spaces++;
+
+    else other++;
   }
 
   // Create the letter analysis table
@@ -55,6 +57,9 @@ int main()
                                count[i],
                                (((float) count[i]) / strlen(buffer)) * 100);
   }
+  printf("%-10s%-15d%-15.2f\n","Other",
+                              other,
+                              (((float) count[i]) / strlen(buffer)) * 100);
   printf("\nTotal spaces: %d\n", spaces);
 
 
