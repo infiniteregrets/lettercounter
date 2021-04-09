@@ -59,7 +59,7 @@ int main()
   }
   printf("%-10s%-15d%-15.2f\n","Other",
                               other,
-                              (((float) count[i]) / strlen(buffer)) * 100);
+                              (((float) other) / strlen(buffer)) * 100);
   printf("\nTotal spaces: %d\n", spaces);
 
 
